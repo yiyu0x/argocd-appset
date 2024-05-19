@@ -25,7 +25,7 @@ spec:
       volumes:
         - name: secret-volume
           secret:
-            secretName: testing_secret
+            secretName: testing-secret
       containers:
       - name: netutils
         image: hwchiu/netutils
