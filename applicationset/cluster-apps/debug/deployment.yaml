@@ -22,10 +22,6 @@ spec:
       labels:
         app: debug
     spec:
-      volumes:
-        - name: secret-volume
-          secret:
-            secretName: testing-secret
       containers:
       - name: netutils
         image: hwchiu/netutils
