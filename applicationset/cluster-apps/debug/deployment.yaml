@@ -9,10 +9,10 @@ kind: Deployment
 metadata:
   name: debug
 spec:
-  volumes:
-    - name: secret-volume
-      secret:
-        secretName: testing-secret
+  # volumes:
+  #   - name: secret-volume
+  #     secret:
+  #       secretName: testing-secret
   replicas: 2
   selector:
     matchLabels:
