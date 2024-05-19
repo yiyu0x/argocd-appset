@@ -26,6 +26,6 @@ spec:
       - name: netutils
         image: hwchiu/netutils
         volumeMounts:
-        - name: secret-volume
-          readOnly: true
-          mountPath: "/etc/secret-volume"
+        # - name: secret-volume
+        #   readOnly: true
+        #   mountPath: "/etc/secret-volume"
