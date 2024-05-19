@@ -18,6 +18,14 @@ spec:
       labels:
         app: debug
     spec:
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: testing_secret
       containers:
       - name: netutils
         image: hwchiu/netutils
+        volumeMounts:
+        - name: secret-volume
+          readOnly: true
+          mountPath: "/etc/secret-volume"
