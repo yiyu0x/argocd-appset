@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+  namespace: argocd
+spec:
+  project: default
+  source:
+    targetRevision: 1.14.4
+    chart: external-dns
+    repoURL: https://kubernetes-sigs.github.io/external-dns/
+    helm:
+      releaseName: external-dns
+      valuesObject:
+        provider:
+          name: aws
+        env:
+          - name: AWS_DEFAULT_REGION
+            value: ap-northeast-1 # change to region where EKS is installed
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: external-dns
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
