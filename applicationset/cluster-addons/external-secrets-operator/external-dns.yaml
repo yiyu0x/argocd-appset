@@ -11,6 +11,12 @@ spec:
     repoURL: https://kubernetes-sigs.github.io/external-dns/
     helm:
       releaseName: external-dns
+      valuesObject:
+        provider:
+          name: aws
+        env:
+          - name: AWS_DEFAULT_REGION
+            value: us-east-1 # change to region where EKS is installed
   destination:
     server: "https://kubernetes.default.svc"
     namespace: external-dns
